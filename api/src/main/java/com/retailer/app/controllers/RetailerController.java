@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -27,15 +28,13 @@ public class RetailerController {
     public ResponseEntity<UserDetailsDto> addEmployee(@RequestBody UserDetailsDto userDetailsDto) {
 
         UserDetailsDto UserDetailsDto = retailerService.addUserDetails(userDetailsDto);
-        // return new ResponseEntity<>(UserDetailsDto, HttpStatus.OK);
-        return ResponseEntity.ok(UserDetailsDto);
+        return new ResponseEntity<>(userDetailsDto, HttpStatus.OK);
     }
 
     @GetMapping(path = "/userDetails/{email}", produces = "application/json")
     public ResponseEntity<UserDetailsDto> getUserDetails(@PathVariable("email") String email) {
 
         UserDetailsDto userDetailsDto = retailerService.getUserDetails(email);
-        // return new ResponseEntity<>(UserDetailsDto, HttpStatus.OK);
-        return ResponseEntity.ok(userDetailsDto);
+        return new ResponseEntity<>(userDetailsDto, HttpStatus.OK);
     }
 }
