@@ -7,10 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import java.time.OffsetDateTime;
-import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -29,13 +28,13 @@ public class RetailerService {
     }
 
     public UserDetailsDto getUserDetails(String email) {
-        List<UserDetails> userDetailsList = userDetailsRepository.findAllByEmail(email);
-        if (CollectionUtils.isEmpty(userDetailsList)) {
+        Optional<UserDetails> userDetails = userDetailsRepository.findAllByEmail(email);
+        if (userDetails.isEmpty()) {
             log.info("No record found for email: {}", email);
             throw new RuntimeException("No record found");
         }
-        UserDetailsDto userDetailsDto = UserDetailsDto.builder().name(userDetailsList.get(0).getName())
-                .email(userDetailsList.get(0).getEmail()).mobile(userDetailsList.get(0).getMobile()).build();
+        UserDetailsDto userDetailsDto = UserDetailsDto.builder().name(userDetails.get().getName())
+                .email(userDetails.get().getEmail()).mobile(userDetails.get().getMobile()).build();
         log.info("Record found for email: {}, userDetails: {}", email, userDetailsDto);
         return userDetailsDto;
     }
