@@ -3,7 +3,7 @@ package com.retailer.app.controllers;
 import com.retailer.app.dto.*;
 import com.retailer.app.enums.SignInStatusCode;
 import com.retailer.app.enums.SignUpStatusCode;
-import com.retailer.app.services.RetailerService;
+import com.retailer.app.services.AdminService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -17,36 +17,36 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/retailer/v1/{email}")
+@RequestMapping("/admin/v1/{email}")
 @Slf4j
 @RestController
 @Validated
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-@Tag(name = "Retailer APIs")
-public class RetailerController {
+@Tag(name = "Admin APIs")
+public class AdminController {
 
-    RetailerService retailerService;
+    AdminService adminService;
 
     @GetMapping(path = "/signIn/{password}", produces = "application/json")
     public ResponseEntity<SignInStatusCode> signIn(@PathVariable("email") String email,
             @PathVariable("password") String password) {
 
-        SignInStatusCode signInStatusCode = retailerService.signIn(email, password);
+        SignInStatusCode signInStatusCode = adminService.signIn(email, password);
         return new ResponseEntity<>(signInStatusCode, HttpStatus.OK);
     }
 
     @PostMapping(path = "/signUp", consumes = "application/json", produces = "application/json")
     public ResponseEntity<SignUpStatusCode> signUp(@RequestBody ProfileDto profile) {
 
-        SignUpStatusCode signUpStatusCode = retailerService.signUp(profile);
+        SignUpStatusCode signUpStatusCode = adminService.signUp(profile);
         return new ResponseEntity<>(signUpStatusCode, HttpStatus.OK);
     }
 
     @GetMapping(path = "/getProfile", produces = "application/json")
     public ResponseEntity<ProfileDto> getProfile(@PathVariable("email") String email) {
 
-        ProfileDto profile = retailerService.getProfile(email);
+        ProfileDto profile = adminService.getProfile(email);
         return new ResponseEntity<>(profile, HttpStatus.OK);
     }
 
@@ -54,14 +54,37 @@ public class RetailerController {
     public ResponseEntity<ProfileDto> updateProfile(@PathVariable("email") String email,
             @RequestBody ProfileDto profile) {
 
-        profile = retailerService.updateProfile(email, profile);
+        profile = adminService.updateProfile(email, profile);
         return new ResponseEntity<>(profile, HttpStatus.OK);
     }
 
     @PostMapping(path = "/home", consumes = "application/json", produces = "application/json")
     public ResponseEntity<List<CityDto>> getCityList(@PathVariable("email") String email) {
 
-        List<CityDto> cityList = retailerService.getCityList(email);
+        List<CityDto> cityList = adminService.getCityList(email);
+        return new ResponseEntity<>(cityList, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/addCity", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<List<CityDto>> addCity(@PathVariable("email") String email, @RequestBody CityDto city) {
+
+        List<CityDto> cityList = adminService.addCity(email, city);
+        return new ResponseEntity<>(cityList, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/updateCity/{city}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<List<CityDto>> updateCity(@PathVariable("email") String email,
+            @PathVariable("city") String cityId, @RequestBody CityDto city) {
+
+        List<CityDto> cityList = adminService.updateCity(email, cityId, city);
+        return new ResponseEntity<>(cityList, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/deleteCity/{city}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<List<CityDto>> deleteCity(@PathVariable("email") String email,
+            @PathVariable("city") String cityId) {
+
+        List<CityDto> cityList = adminService.deleteCity(email, cityId);
         return new ResponseEntity<>(cityList, HttpStatus.OK);
     }
 
@@ -69,7 +92,32 @@ public class RetailerController {
     public ResponseEntity<List<CategoryDto>> getCategoryListFromCity(@PathVariable("email") String email,
             @PathVariable("city") String city) {
 
-        List<CategoryDto> categoryList = retailerService.getCategoryListFromCity(email, city);
+        List<CategoryDto> categoryList = adminService.getCategoryListFromCity(email, city);
+        return new ResponseEntity<>(categoryList, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/addCategoryIntoCity/{city}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<List<CategoryDto>> addCategoryIntoCity(@PathVariable("email") String email,
+            @PathVariable("city") String city, @RequestBody CategoryDto category) {
+
+        List<CategoryDto> categoryList = adminService.addCategoryIntoCity(email, city, category);
+        return new ResponseEntity<>(categoryList, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/updateCategoryIntoCity/{city}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<List<CategoryDto>> updateCategoryIntoCity(@PathVariable("email") String email,
+            @PathVariable("city") String city, @PathVariable("categoryId") String categoryId,
+            @RequestBody CategoryDto category) {
+
+        List<CategoryDto> categoryList = adminService.updateCategoryIntoCity(email, city, categoryId, category);
+        return new ResponseEntity<>(categoryList, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/deleteCategoryFromCity/{city}/{categoryId}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<List<CategoryDto>> deleteCategoryFromCity(@PathVariable("email") String email,
+            @PathVariable("city") String city, @PathVariable("categoryId") String categoryId) {
+
+        List<CategoryDto> categoryList = adminService.deleteCategoryFromCity(email, city, categoryId);
         return new ResponseEntity<>(categoryList, HttpStatus.OK);
     }
 
@@ -77,7 +125,7 @@ public class RetailerController {
     public ResponseEntity<List<ShopDto>> getShopListFromCategory(@PathVariable("email") String email,
             @PathVariable("city") String city, @PathVariable("categoryId") String categoryId) {
 
-        List<ShopDto> shopList = retailerService.getShopListFromCategory(email, city, categoryId);
+        List<ShopDto> shopList = adminService.getShopListFromCategory(email, city, categoryId);
         return new ResponseEntity<>(shopList, HttpStatus.OK);
     }
 
@@ -86,7 +134,7 @@ public class RetailerController {
             @PathVariable("city") String city, @PathVariable("categoryId") String categoryId,
             @RequestBody ShopDto shop) {
 
-        List<ShopDto> shopList = retailerService.addShopIntoCategory(email, city, categoryId, shop);
+        List<ShopDto> shopList = adminService.addShopIntoCategory(email, city, categoryId, shop);
         return new ResponseEntity<>(shopList, HttpStatus.OK);
     }
 
@@ -95,7 +143,16 @@ public class RetailerController {
             @PathVariable("city") String city, @PathVariable("categoryId") String categoryId,
             @PathVariable("shopId") String shopId, @RequestBody ShopDto shop) {
 
-        List<ShopDto> shopList = retailerService.updateShopIntoCategory(email, city, categoryId, shopId, shop);
+        List<ShopDto> shopList = adminService.updateShopIntoCategory(email, city, categoryId, shopId, shop);
+        return new ResponseEntity<>(shopList, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/deleteShopFromCategory/{city}/{categoryId}/{shopId}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<List<ShopDto>> deleteShopFromCategory(@PathVariable("email") String email,
+            @PathVariable("city") String city, @PathVariable("categoryId") String categoryId,
+            @PathVariable("shopId") String shopId) {
+
+        List<ShopDto> shopList = adminService.deleteShopFromCategory(email, city, categoryId, shopId);
         return new ResponseEntity<>(shopList, HttpStatus.OK);
     }
 
@@ -103,7 +160,7 @@ public class RetailerController {
     public ResponseEntity<List<ItemCategoryDto>> getItemListFromShop(@PathVariable("email") String email,
             @PathVariable("city") String city, @PathVariable("shopId") String shopId) {
 
-        List<ItemCategoryDto> itemCategoryList = retailerService.getItemListFromShop(email, city, shopId);
+        List<ItemCategoryDto> itemCategoryList = adminService.getItemListFromShop(email, city, shopId);
         return new ResponseEntity<>(itemCategoryList, HttpStatus.OK);
     }
 
@@ -111,7 +168,7 @@ public class RetailerController {
     public ResponseEntity<List<ItemCategoryDto>> addItemIntoShop(@PathVariable("email") String email,
             @PathVariable("city") String city, @PathVariable("shopId") String shopId, @RequestBody ItemDto item) {
 
-        List<ItemCategoryDto> itemCategoryList = retailerService.addItemIntoShop(email, city, shopId, item);
+        List<ItemCategoryDto> itemCategoryList = adminService.addItemIntoShop(email, city, shopId, item);
         return new ResponseEntity<>(itemCategoryList, HttpStatus.OK);
     }
 
@@ -120,7 +177,7 @@ public class RetailerController {
             @PathVariable("city") String city, @PathVariable("shopId") String shopId,
             @PathVariable("itemId") String itemId, @RequestBody ItemDto item) {
 
-        List<ItemCategoryDto> itemCategoryList = retailerService.updateItemIntoShop(email, city, shopId, itemId, item);
+        List<ItemCategoryDto> itemCategoryList = adminService.updateItemIntoShop(email, city, shopId, itemId, item);
         return new ResponseEntity<>(itemCategoryList, HttpStatus.OK);
     }
 
@@ -129,7 +186,7 @@ public class RetailerController {
             @PathVariable("city") String city, @PathVariable("shopId") String shopId,
             @PathVariable("itemId") String itemId) {
 
-        List<ItemCategoryDto> itemCategoryList = retailerService.deleteItemFromShop(email, city, shopId, itemId);
+        List<ItemCategoryDto> itemCategoryList = adminService.deleteItemFromShop(email, city, shopId, itemId);
         return new ResponseEntity<>(itemCategoryList, HttpStatus.OK);
     }
 
