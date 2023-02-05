@@ -2,37 +2,83 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.appName{
+  color: rgb(27, 235, 27);
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 50px;
+  font-family: sans-serif
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.homeButtons{
+  /* position: absolute; */
+  margin-top: 240px;
+  margin-left: 200px !important;
+}
+
+@media screen and (max-width:1020px) {
+  .appName{
+    font-size: 30px;
+  }
+  .homeButtons{
+    margin-left: 0px !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.createAccount{
+  font-size: 12px;
 }
 
-.App-link {
-  color: #61dafb;
+.createAccount span{
+  cursor: pointer;
+  color: rgb(66, 66, 247);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.createAccount span:hover{
+  color: blueviolet;
+}
+
+/*3D Button*/
+
+.box {
+	background: linear-gradient(to right, rgb(0, 195, 255), rgb(225, 0, 255));
+	color: white;
+	--width: 150px;
+	--height: calc(var(--width) / 3);
+	width: var(--width);
+	height: var(--height);
+	text-align: center;
+	line-height: var(--height);
+	font-size: calc(var(--height) / 2.5);
+	font-family: sans-serif;
+	letter-spacing: 0.2em;
+	border: 1px solid darkgoldenrod;
+	border-radius: 2em;
+	transform: perspective(500px) rotateY(-15deg);
+	text-shadow: 6px 3px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 2px 0 0 5px rgba(0, 0, 0, 0.2);
+	transition: 0.5s;
+	position: relative;
+	overflow: hidden;
+  cursor: pointer;
+}
+
+.box:hover {
+	transform: perspective(500px) rotateY(15deg);
+	text-shadow: -6px 3px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: -2px 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.box::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to right, transparent, white, transparent);
+	left: -100%;
+	transition: 0.5s;
+}
+
+.box:hover::before {
+	left: 100%;
 }
