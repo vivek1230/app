@@ -10,8 +10,7 @@ import java.util.List;
 @Builder
 public class ItemDto {
     String itemId;
-    String title;
-    String itemCategory;
+    String name;
     String description;
     Double price;
     PricingType pricingType;

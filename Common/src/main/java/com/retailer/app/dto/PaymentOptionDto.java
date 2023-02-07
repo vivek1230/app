@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 @Builder
 public class PaymentOptionDto {
-    PaymentOptionType type;
-    String title;
+    PaymentOptionType paymentOptionType;
+    String name;
     String description;
     String paymentOptionId;
 }

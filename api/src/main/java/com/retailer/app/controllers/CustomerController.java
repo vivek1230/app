@@ -135,11 +135,11 @@ public class CustomerController {
     }
 
     @PostMapping(path = "/getItemListFromShop/{city}/{shopId}", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<List<ItemCategoryDto>> getItemListFromShop(@PathVariable("email") String email,
+    public ResponseEntity<List<ItemDto>> getItemListFromShop(@PathVariable("email") String email,
             @PathVariable("city") String city, @PathVariable("shopId") String shopId) {
 
-        List<ItemCategoryDto> itemCategoryList = customerService.getItemListFromShop(email, city, shopId);
-        return new ResponseEntity<>(itemCategoryList, HttpStatus.OK);
+        List<ItemDto> itemList = customerService.getItemListFromShop(email, city, shopId);
+        return new ResponseEntity<>(itemList, HttpStatus.OK);
     }
 
     @PostMapping(path = "/getCartItemList/{city}/{shopId}", consumes = "application/json", produces = "application/json")

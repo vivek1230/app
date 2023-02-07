@@ -34,12 +34,11 @@ public class RetailerService {
         return null;
     }
 
-    public List<ItemCategoryDto> deleteItemFromShop(String email, String city, String shopId, String itemId) {
+    public List<ItemDto> deleteItemFromShop(String email, String city, String shopId, String itemId) {
         return null;
     }
 
-    public List<ItemCategoryDto> updateItemIntoShop(String email, String city, String shopId, String itemId,
-            ItemDto item) {
+    public List<ItemDto> updateItemIntoShop(String email, String city, String shopId, String itemId, ItemDto item) {
         return null;
     }
 
@@ -47,7 +46,7 @@ public class RetailerService {
         return null;
     }
 
-    public List<ItemCategoryDto> getItemListFromShop(String email, String city, String shopId) {
+    public List<ItemDto> getItemListFromShop(String email, String city, String shopId) {
         return null;
     }
 
@@ -68,7 +67,7 @@ public class RetailerService {
         return null;
     }
 
-    public List<ItemCategoryDto> addItemIntoShop(String email, String city, String shopId, ItemDto item) {
+    public List<ItemDto> addItemIntoShop(String email, String city, String shopId, ItemDto item) {
         return null;
     }
 

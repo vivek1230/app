@@ -10,7 +10,7 @@ public class AddressDto {
     String addressId;
     String name;
     String mobile;
-    AddressType type;
+    AddressType addressType;
     String city;
     String pinCode;
     String landMark;

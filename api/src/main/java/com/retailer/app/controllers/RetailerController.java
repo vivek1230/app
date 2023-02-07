@@ -100,37 +100,37 @@ public class RetailerController {
     }
 
     @PostMapping(path = "/getItemListFromShop/{city}/{shopId}", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<List<ItemCategoryDto>> getItemListFromShop(@PathVariable("email") String email,
+    public ResponseEntity<List<ItemDto>> getItemListFromShop(@PathVariable("email") String email,
             @PathVariable("city") String city, @PathVariable("shopId") String shopId) {
 
-        List<ItemCategoryDto> itemCategoryList = retailerService.getItemListFromShop(email, city, shopId);
-        return new ResponseEntity<>(itemCategoryList, HttpStatus.OK);
+        List<ItemDto> itemList = retailerService.getItemListFromShop(email, city, shopId);
+        return new ResponseEntity<>(itemList, HttpStatus.OK);
     }
 
     @PostMapping(path = "/addItemIntoShop/{city}/{shopId}", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<List<ItemCategoryDto>> addItemIntoShop(@PathVariable("email") String email,
+    public ResponseEntity<List<ItemDto>> addItemIntoShop(@PathVariable("email") String email,
             @PathVariable("city") String city, @PathVariable("shopId") String shopId, @RequestBody ItemDto item) {
 
-        List<ItemCategoryDto> itemCategoryList = retailerService.addItemIntoShop(email, city, shopId, item);
-        return new ResponseEntity<>(itemCategoryList, HttpStatus.OK);
+        List<ItemDto> itemList = retailerService.addItemIntoShop(email, city, shopId, item);
+        return new ResponseEntity<>(itemList, HttpStatus.OK);
     }
 
     @PostMapping(path = "/updateItemIntoShop/{city}/{shopId}/{itemId}", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<List<ItemCategoryDto>> updateItemIntoShop(@PathVariable("email") String email,
+    public ResponseEntity<List<ItemDto>> updateItemIntoShop(@PathVariable("email") String email,
             @PathVariable("city") String city, @PathVariable("shopId") String shopId,
             @PathVariable("itemId") String itemId, @RequestBody ItemDto item) {
 
-        List<ItemCategoryDto> itemCategoryList = retailerService.updateItemIntoShop(email, city, shopId, itemId, item);
-        return new ResponseEntity<>(itemCategoryList, HttpStatus.OK);
+        List<ItemDto> itemList = retailerService.updateItemIntoShop(email, city, shopId, itemId, item);
+        return new ResponseEntity<>(itemList, HttpStatus.OK);
     }
 
     @PostMapping(path = "/deleteItemFromShop/{city}/{shopId}/{itemId}", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<List<ItemCategoryDto>> deleteItemFromShop(@PathVariable("email") String email,
+    public ResponseEntity<List<ItemDto>> deleteItemFromShop(@PathVariable("email") String email,
             @PathVariable("city") String city, @PathVariable("shopId") String shopId,
             @PathVariable("itemId") String itemId) {
 
-        List<ItemCategoryDto> itemCategoryList = retailerService.deleteItemFromShop(email, city, shopId, itemId);
-        return new ResponseEntity<>(itemCategoryList, HttpStatus.OK);
+        List<ItemDto> itemList = retailerService.deleteItemFromShop(email, city, shopId, itemId);
+        return new ResponseEntity<>(itemList, HttpStatus.OK);
     }
 
 }

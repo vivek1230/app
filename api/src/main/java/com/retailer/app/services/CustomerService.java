@@ -79,7 +79,7 @@ public class CustomerService {
         return null;
     }
 
-    public List<ItemCategoryDto> getItemListFromShop(String email, String city, String shopId) {
+    public List<ItemDto> getItemListFromShop(String email, String city, String shopId) {
         return null;
     }
 

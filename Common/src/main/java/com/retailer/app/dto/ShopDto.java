@@ -11,7 +11,7 @@ public class ShopDto {
     String shopId;
     String name;
     String description;
-    String location;
+    AddressDto address;
     String rating;
     List<String> picUrls;
 }
