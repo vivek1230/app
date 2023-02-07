@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 @Slf4j
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-public class RetailerService {
+public class AdminService {
 
     UserDetailsRepository userDetailsRepository;
 
@@ -34,11 +34,31 @@ public class RetailerService {
         return null;
     }
 
+    public List<CategoryDto> deleteCategoryFromCity(String email, String city, String categoryId) {
+        return null;
+    }
+
+    public List<ShopDto> deleteShopFromCategory(String email, String city, String categoryId, String shopId) {
+        return null;
+    }
+
     public List<ItemDto> deleteItemFromShop(String email, String city, String shopId, String itemId) {
         return null;
     }
 
     public List<ItemDto> updateItemIntoShop(String email, String city, String shopId, String itemId, ItemDto item) {
+        return null;
+    }
+
+    public List<CityDto> addCity(String email, CityDto city) {
+        return null;
+    }
+
+    public List<CityDto> updateCity(String email, String cityId, CityDto city) {
+        return null;
+    }
+
+    public List<CityDto> deleteCity(String email, String cityId) {
         return null;
     }
 
@@ -55,6 +75,15 @@ public class RetailerService {
     }
 
     public List<CategoryDto> getCategoryListFromCity(String email, String city) {
+        return null;
+    }
+
+    public List<CategoryDto> addCategoryIntoCity(String email, String city, CategoryDto category) {
+        return null;
+    }
+
+    public List<CategoryDto> updateCategoryIntoCity(String email, String city, String categoryId,
+            CategoryDto category) {
         return null;
     }
 

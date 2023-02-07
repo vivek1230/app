@@ -25,5 +25,5 @@ springdoc:
     enabled: true
     disable-swagger-default-url: true
     config:
-      title: API
+      title: ShopInZone API
       version: v1
