@@ -15,7 +15,7 @@ public class ShopItemDto {
     String description;
     boolean availability;
     int availableQuantity;
-    double price;
+    Double price;
     PricingType pricingType;
     String rating;
     List<String> itemImageUrlList;

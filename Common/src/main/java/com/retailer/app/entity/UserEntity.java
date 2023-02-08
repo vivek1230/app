@@ -4,18 +4,37 @@ import com.retailer.app.enums.UserRoleType;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "User", schema = "ShopInZone")
+@Table(name = "UserEntity", schema = "ShopInZone")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserEntity {
-    String userId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "UserId", nullable = false)
+    Long userId;
+
+    @Column(name = "Email")
+    String email;
+
+    @Column(name = "Mobile")
+    String mobile;
+
+    @Column(name = "Password")
+    String password;
+
+    @Column(name = "UserRoleType")
     UserRoleType userRoleType;
-    String profileId;
+
+    @Column(name = "Created")
+    OffsetDateTime created;
+
+    @Column(name = "LastUpdated")
+    OffsetDateTime lastUpdated;
 }

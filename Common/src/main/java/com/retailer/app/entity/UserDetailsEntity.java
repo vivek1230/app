@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "UserDetails", schema = "ShopInZone")
+@Table(name = "UserDetailsEntity", schema = "ShopInZone")
 @Data
 @Builder
 @AllArgsConstructor
@@ -28,6 +28,9 @@ public class UserDetailsEntity {
 
     @Column(name = "Mobile")
     String mobile;
+
+    @Column(name = "Created")
+    OffsetDateTime created;
 
     @Column(name = "LastUpdated")
     OffsetDateTime lastUpdated;

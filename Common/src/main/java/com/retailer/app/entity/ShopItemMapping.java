@@ -4,8 +4,8 @@ import com.retailer.app.enums.PricingType;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @Entity
 @Table(name = "ShopItemMapping", schema = "ShopInZone")
@@ -15,13 +15,42 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ShopItemMapping {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    Long id;
+
+    @Column(name = "ShopId")
     String shopId;
+
+    @Column(name = "ItemId")
     String itemId;
+
+    @Column(name = "ItemName")
     String itemName;
+
+    @Column(name = "Description")
     String description;
+
+    @Column(name = "Availability")
     boolean availability;
+
+    @Column(name = "AvailableQuantity")
     int availableQuantity;
-    double price;
+
+    @Column(name = "Price")
+    Double price;
+
+    @Column(name = "PricingType")
     PricingType pricingType;
+
+    @Column(name = "Rating")
     String rating;
+
+    @Column(name = "Created")
+    OffsetDateTime created;
+
+    @Column(name = "LastUpdated")
+    OffsetDateTime lastUpdated;
 }
