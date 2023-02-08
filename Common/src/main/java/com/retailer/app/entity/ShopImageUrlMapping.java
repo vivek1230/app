@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CityImageUrlMapping", schema = "ShopInZone")
+@Table(name = "ShopImageUrlMapping", schema = "ShopInZone")
 @Data
 @Builder
 @AllArgsConstructor
