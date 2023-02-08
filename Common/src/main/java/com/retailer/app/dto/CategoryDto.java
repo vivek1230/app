@@ -9,7 +9,7 @@ import java.util.List;
 @Builder
 public class CategoryDto {
     String categoryId;
-    String name;
+    String categoryName;
     String description;
-    List<String> picUrls;
+    List<String> categoryImageUrlList;
 }

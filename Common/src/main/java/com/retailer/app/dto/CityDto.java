@@ -9,7 +9,9 @@ import java.util.List;
 @Builder
 public class CityDto {
     String cityId;
-    String name;
+    String cityName;
     String description;
-    List<String> picUrls;
+    List<String> cityImageUrlList;
+    List<String> cityNameList;
+    List<String> cityPinCodeList;
 }
