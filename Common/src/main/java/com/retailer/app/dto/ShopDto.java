@@ -9,9 +9,10 @@ import java.util.List;
 @Builder
 public class ShopDto {
     String shopId;
-    String name;
+    String shopName;
     String description;
-    AddressDto address;
+    String city;
     String rating;
-    List<String> picUrls;
+    String addressId;
+    List<String> imageUrlList;
 }

@@ -4,13 +4,19 @@ import com.retailer.app.enums.PricingType;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.Map;
+import java.util.List;
 
 @Data
 @Builder
 public class CartRequestDto {
-    Map<String, Integer> ItemIdQuantityMap;
-    String itemId;
-    String quantity;
-    PricingType pricingType;
+    List<ItemRequestDto> itemRequestList;
+
+    @Data
+    @Builder
+    public static class ItemRequestDto {
+        String itemId;
+        int orderQuantity;
+        double price;
+        PricingType pricingType;
+    }
 }

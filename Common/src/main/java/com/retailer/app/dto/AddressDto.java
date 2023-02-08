@@ -15,5 +15,5 @@ public class AddressDto {
     String pinCode;
     String landMark;
     String state;
-    String Address;
+    String addressText;
 }
