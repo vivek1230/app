@@ -11,7 +11,7 @@ public class ProfileDto {
     String userId;
     String email;
     String name;
-    String mobileNo;
+    String mobile;
     Gender gender;
     String pinCode;
     String city;

@@ -4,24 +4,53 @@ import com.retailer.app.enums.AddressType;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "Address", schema = "ShopInZone")
+@Table(name = "AddressEntity", schema = "ShopInZone")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class AddressEntity {
-    String addressId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "AddressId", nullable = false)
+    Long addressId;
+
+    @Column(name = "email")
+    String email;
+
+    @Column(name = "Name")
     String name;
+
+    @Column(name = "Mobile")
     String mobile;
+
+    @Column(name = "AddressType")
     AddressType addressType;
-    String city;
+
+    @Column(name = "PinCode")
     String pinCode;
+
+    @Column(name = "City")
+    String city;
+
+    @Column(name = "LandMark")
     String landMark;
+
+    @Column(name = "State")
     String state;
+
+    @Column(name = "AddressText")
     String addressText;
+
+    @Column(name = "Created")
+    OffsetDateTime created;
+
+    @Column(name = "LastUpdated")
+    OffsetDateTime lastUpdated;
 }

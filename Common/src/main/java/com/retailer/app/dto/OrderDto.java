@@ -13,7 +13,7 @@ public class OrderDto {
     String orderId;
     String userId;
     OffsetDateTime orderDate;
-    double totalAmount;
+    Double totalAmount;
     List<OrderItemDto> orderItemList;
     AddressDto orderAddress;
     PaymentOptionDto orderPaymentOption;
@@ -25,7 +25,7 @@ public class OrderDto {
         String itemName;
         String description;
         int orderQuantity;
-        double price;
+        Double price;
         PricingType pricingType;
         List<String> itemImageUrlList;
     }

@@ -1,4 +1,4 @@
-package com.retailer.app.dto;
+package com.retailer.app.dto.requestDto;
 
 import com.retailer.app.enums.PricingType;
 import lombok.Builder;
@@ -16,7 +16,7 @@ public class CartRequestDto {
     public static class ItemRequestDto {
         String itemId;
         int orderQuantity;
-        double price;
+        Double price;
         PricingType pricingType;
     }
 }

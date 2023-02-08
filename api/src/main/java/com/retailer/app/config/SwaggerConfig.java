@@ -19,7 +19,9 @@ import java.time.LocalTime;
 public class SwaggerConfig {
 
     private static final String GROUP_NAME = "API v1";
-    private static final String[] paths = { "/admin/v1/**", "/customer/v1/**", "/retailer/v1/**" };
+    // private static final String[] paths = { "/admin/v1/**", "/customer/v1/**", "/retailer/v1/**", "/firstApp/v1/**"
+    // };
+    private static final String[] paths = { "/firstApp/v1/**" };
     private String title;
     private String version;
 

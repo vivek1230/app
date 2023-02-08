@@ -16,7 +16,7 @@ public class CartItemDto {
     String itemName;
     String description;
     int orderQuantity;
-    double price;
+    Double price;
     PricingType pricingType;
     List<String> itemImageUrlList;
 }

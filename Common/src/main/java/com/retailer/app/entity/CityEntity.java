@@ -3,18 +3,32 @@ package com.retailer.app.entity;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "City", schema = "ShopInZone")
+@Table(name = "CityEntity", schema = "ShopInZone")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CityEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "CityId", nullable = false)
     String cityId;
+
+    @Column(name = "CityName")
     String cityName;
+
+    @Column(name = "Description")
     String description;
+
+    @Column(name = "Created")
+    OffsetDateTime created;
+
+    @Column(name = "LastUpdated")
+    OffsetDateTime lastUpdated;
 }

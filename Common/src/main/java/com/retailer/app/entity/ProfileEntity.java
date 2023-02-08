@@ -4,25 +4,44 @@ import com.retailer.app.enums.Gender;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "Profile", schema = "ShopInZone")
+@Table(name = "ProfileEntity", schema = "ShopInZone")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ProfileEntity {
-    String profileId;
-    String userId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ProfileId", nullable = false)
+    Long profileId;
+
+    @Column(name = "Email")
     String email;
+
+    @Column(name = "Name")
     String name;
-    String mobileNo;
+
+    @Column(name = "Mobile")
+    String mobile;
+
+    @Column(name = "Gender")
     Gender gender;
+
+    @Column(name = "PinCode")
     String pinCode;
+
+    @Column(name = "City")
     String city;
-    String password;
-    String addressId;
+
+    @Column(name = "Created")
+    OffsetDateTime created;
+
+    @Column(name = "LastUpdated")
+    OffsetDateTime lastUpdated;
 }
