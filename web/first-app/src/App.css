@@ -1,45 +1,38 @@
 .App {
-  text-align: center;
+	text-align: center;
+	overflow: hidden;
 }
 
-.appName{
-  color: rgb(27, 235, 27);
-  font-weight: bold;
-  margin-top: 20px;
-  font-size: 50px;
-  font-family: sans-serif
+.appName {
+	color: rgb(27, 235, 27);
+	font-weight: bold;
+	margin-top: 20px;
+	font-size: 50px;
+	font-family: sans-serif
 }
 
-.homeButtons{
-  /* position: absolute; */
-  margin-top: 240px;
-  margin-left: 200px !important;
-}
 
 @media screen and (max-width:1020px) {
-  .appName{
-    font-size: 30px;
-  }
-  .homeButtons{
-    margin-left: 0px !important;
-  }
+	.appName {
+		font-size: 30px;
+	}
 }
 
-.createAccount{
-  font-size: 12px;
+.createAccount {
+	font-size: 12px;
 }
 
-.createAccount span{
-  cursor: pointer;
-  color: rgb(66, 66, 247);
+.createAccount span {
+	cursor: pointer;
+	color: rgb(66, 66, 247);
 }
 
-.createAccount span:hover{
-  color: blueviolet;
+.createAccount span:hover {
+	color: blueviolet;
 }
 
 /*3D Button*/
-
+/* 
 .box {
 	background: linear-gradient(to right, rgb(0, 195, 255), rgb(225, 0, 255));
 	color: white;
@@ -81,4 +74,4 @@
 
 .box:hover::before {
 	left: 100%;
-}
+} */
