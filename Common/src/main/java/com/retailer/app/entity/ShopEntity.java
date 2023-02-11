@@ -18,7 +18,7 @@ public class ShopEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ShopId", nullable = false)
-    String shopId;
+    Long shopId;
 
     @Column(name = "ShopName")
     String shopName;
@@ -26,14 +26,17 @@ public class ShopEntity {
     @Column(name = "Description")
     String description;
 
-    @Column(name = "City")
-    String city;
+    @Column(name = "CityId")
+    Long cityId;
+
+    @Column(name = "AddressId")
+    Long addressId;
 
     @Column(name = "Rating")
     String rating;
 
-    @Column(name = "AddressId")
-    String addressId;
+    @Column(name = "ImageUrl")
+    String imageUrl;
 
     @Column(name = "Created")
     OffsetDateTime created;

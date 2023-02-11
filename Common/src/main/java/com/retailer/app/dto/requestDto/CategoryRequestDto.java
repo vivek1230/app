@@ -8,7 +8,6 @@ import java.util.List;
 @Data
 @Builder
 public class CategoryRequestDto {
-    String categoryId;
     String categoryName;
     String description;
     List<String> categoryImageUrlList;

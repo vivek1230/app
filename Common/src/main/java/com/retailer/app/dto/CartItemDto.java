@@ -9,10 +9,10 @@ import java.util.List;
 @Data
 @Builder
 public class CartItemDto {
-    String cartId;
-    String userId;
-    String shopId;
-    String itemId;
+    Long cartId;
+    Long userId;
+    Long shopId;
+    Long itemId;
     String itemName;
     String description;
     int orderQuantity;

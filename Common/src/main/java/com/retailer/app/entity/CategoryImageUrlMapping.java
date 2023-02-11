@@ -20,7 +20,7 @@ public class CategoryImageUrlMapping {
     Long id;
 
     @Column(name = "CategoryId")
-    String categoryId;
+    Long categoryId;
 
     @Column(name = "ImageUrl")
     String imageUrl;

@@ -16,14 +16,14 @@ import java.time.OffsetDateTime;
 public class CityCategoryMapping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    Long id;
+    @Column(name = "CityCategoryMappingId", nullable = false)
+    Long cityCategoryMappingId;
 
     @Column(name = "CityId")
-    String cityId;
+    Long cityId;
 
     @Column(name = "CategoryId")
-    String categoryId;
+    Long categoryId;
 
     @Column(name = "Created")
     OffsetDateTime created;

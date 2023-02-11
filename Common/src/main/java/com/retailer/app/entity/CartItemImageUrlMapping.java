@@ -20,10 +20,10 @@ public class CartItemImageUrlMapping {
     Long id;
 
     @Column(name = "CartId")
-    String cartId;
+    Long cartId;
 
     @Column(name = "ItemId")
-    String itemId;
+    Long itemId;
 
     @Column(name = "ImageUrl")
     String imageUrl;

@@ -3,16 +3,14 @@ package com.retailer.app.dto.responseDto;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 @Builder
 public class ShopResponseDto {
-    String shopId;
+    Long shopId;
     String shopName;
     String description;
-    String city;
+    Long cityId;
     String rating;
-    String addressId;
-    List<String> imageUrlList;
+    Long addressId;
+    String imageUrl;
 }

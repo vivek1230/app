@@ -18,13 +18,13 @@ public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "AddressId", nullable = false)
-    String orderId;
+    Long orderId;
 
     @Column(name = "UserId")
-    String userId;
+    Long userId;
 
     @Column(name = "ShopId")
-    String shopId;
+    Long shopId;
 
     @Column(name = "OrderDate")
     OffsetDateTime orderDate;
@@ -33,10 +33,10 @@ public class OrderEntity {
     Double totalAmount;
 
     @Column(name = "OrderAddressId")
-    String orderAddressId;
+    Long orderAddressId;
 
     @Column(name = "OrderPaymentOptionId")
-    String orderPaymentOptionId;
+    Long orderPaymentOptionId;
 
     @Column(name = "Created")
     OffsetDateTime created;
