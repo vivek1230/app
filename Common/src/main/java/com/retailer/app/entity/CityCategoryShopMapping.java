@@ -7,23 +7,26 @@ import javax.persistence.*;
 import java.time.OffsetDateTime;
 
 @Entity
-@Table(name = "CategoryShopMapping", schema = "ShopInZone")
+@Table(name = "CityCategoryShopMapping", schema = "ShopInZone")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CategoryShopMapping {
+public class CityCategoryShopMapping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    Long id;
+    @Column(name = "CityCategoryShopMappingId", nullable = false)
+    Long cityCategoryShopMappingId;
+
+    @Column(name = "CityId")
+    Long cityId;
 
     @Column(name = "CategoryId")
-    String categoryId;
+    Long categoryId;
 
     @Column(name = "ShopId")
-    String shopId;
+    Long shopId;
 
     @Column(name = "Created")
     OffsetDateTime created;

@@ -19,10 +19,10 @@ public class PaymentOptionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PaymentOptionId", nullable = false)
-    String paymentOptionId;
+    Long paymentOptionId;
 
     @Column(name = "UserId")
-    String userId;
+    Long userId;
 
     @Column(name = "paymentOptionName")
     String paymentOptionName;

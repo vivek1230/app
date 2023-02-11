@@ -10,8 +10,8 @@ import java.util.List;
 @Data
 @Builder
 public class OrderDto {
-    String orderId;
-    String userId;
+    Long orderId;
+    Long userId;
     OffsetDateTime orderDate;
     Double totalAmount;
     List<OrderItemDto> orderItemList;
@@ -21,7 +21,7 @@ public class OrderDto {
     @Data
     @Builder
     public static class OrderItemDto {
-        String itemId;
+        Long itemId;
         String itemName;
         String description;
         int orderQuantity;

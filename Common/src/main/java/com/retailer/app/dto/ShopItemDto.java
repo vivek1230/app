@@ -9,8 +9,8 @@ import java.util.List;
 @Data
 @Builder
 public class ShopItemDto {
-    String shopId;
-    String itemId;
+    Long shopId;
+    Long itemId;
     String itemName;
     String description;
     boolean availability;

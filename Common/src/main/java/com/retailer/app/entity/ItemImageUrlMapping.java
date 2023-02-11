@@ -21,7 +21,7 @@ public class ItemImageUrlMapping {
     Long id;
 
     @Column(name = "ItemId")
-    String itemId;
+    Long itemId;
 
     @Column(name = "ImageUrl")
     String imageUrl;

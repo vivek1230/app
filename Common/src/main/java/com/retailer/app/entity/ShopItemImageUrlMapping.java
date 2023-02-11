@@ -21,10 +21,10 @@ public class ShopItemImageUrlMapping {
     Long id;
 
     @Column(name = "ShopId")
-    String shopId;
+    Long shopId;
 
     @Column(name = "ItemId")
-    String itemId;
+    Long itemId;
 
     @Column(name = "ImageUrl")
     String imageUrl;
