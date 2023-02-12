@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url("../public/firstApp.jpg");
+  /* background: url("../public/firstApp.jpg"); */
   /* background-repeat: no-repeat;
   background-size: cover; */
 }
@@ -17,7 +17,7 @@ code {
 
 @media screen and (max-width:1020px) {
   body {
-    background: url("../public/firstApp-mobile.jpg");
+    /* background: url("../public/firstApp-mobile.jpg"); */
     /* background-repeat: no-repeat; */
     background-size: cover;
   }
