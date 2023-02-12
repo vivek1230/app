@@ -8,11 +8,11 @@ import java.util.List;
 @Data
 @Builder
 public class ShopDto {
-    String shopId;
+    Long shopId;
     String shopName;
     String description;
     String city;
     String rating;
-    String addressId;
+    Long addressId;
     List<String> imageUrlList;
 }

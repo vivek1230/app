@@ -20,10 +20,10 @@ public class CheckOutPaymentOptionMapping {
     Long id;
 
     @Column(name = "CheckOutId")
-    String checkOutId;
+    Long checkOutId;
 
     @Column(name = "PaymentOptionId")
-    String paymentOptionId;
+    Long paymentOptionId;
 
     @Column(name = "Created")
     OffsetDateTime created;

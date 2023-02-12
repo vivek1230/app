@@ -21,16 +21,16 @@ public class CartItemMapping {
     Long id;
 
     @Column(name = "CartId")
-    String cartId;
+    Long cartId;
 
     @Column(name = "UserId")
-    String userId;
+    Long userId;
 
     @Column(name = "ShopId")
-    String shopId;
+    Long shopId;
 
     @Column(name = "ItemId")
-    String itemId;
+    Long itemId;
 
     @Column(name = "ItemName")
     String itemName;

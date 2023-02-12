@@ -22,10 +22,10 @@ public class ShopItemMapping {
     Long id;
 
     @Column(name = "ShopId")
-    String shopId;
+    Long shopId;
 
     @Column(name = "ItemId")
-    String itemId;
+    Long itemId;
 
     @Column(name = "ItemName")
     String itemName;

@@ -1,14 +1,12 @@
 package com.retailer.app.mapping;
 
-import com.retailer.app.dto.requestDto.AddressRequestDto;
-import com.retailer.app.dto.requestDto.ProfileRequestDto;
-import com.retailer.app.dto.requestDto.UserRequestDto;
-import com.retailer.app.entity.AddressEntity;
-import com.retailer.app.entity.ProfileEntity;
-import com.retailer.app.entity.UserEntity;
+import com.retailer.app.dto.requestDto.*;
+import com.retailer.app.entity.*;
 import com.retailer.app.enums.UserRoleType;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DtoToEntityMapping {
 
@@ -29,6 +27,64 @@ public class DtoToEntityMapping {
                 .city(addressRequest.getCity()).pinCode(addressRequest.getPinCode())
                 .landMark(addressRequest.getLandMark()).addressType(addressRequest.getAddressType())
                 .state(addressRequest.getState()).addressText(addressRequest.getAddressText())
+                .created(OffsetDateTime.now()).lastUpdated(OffsetDateTime.now()).build();
+    }
+
+    public static CityEntity getCityEntity(CityRequestDto cityRequest) {
+        return CityEntity.builder().cityName(cityRequest.getCityName()).description(cityRequest.getDescription())
+                .created(OffsetDateTime.now()).lastUpdated(OffsetDateTime.now()).build();
+    }
+
+    public static List<CityImageUrlMapping> getCityImageUrlMapping(Long cityId, List<String> cityImageUrlList) {
+        List<CityImageUrlMapping> cityImageUrlMappingList = new ArrayList<>();
+        cityImageUrlList.forEach(cityImageUrl -> {
+            CityImageUrlMapping cityImageUrlMapping = CityImageUrlMapping.builder().cityId(cityId)
+                    .imageUrl(cityImageUrl).created(OffsetDateTime.now()).lastUpdated(OffsetDateTime.now()).build();
+            cityImageUrlMappingList.add(cityImageUrlMapping);
+        });
+        return cityImageUrlMappingList;
+    }
+
+    public static List<CityPinCodeMapping> getCityPinCodeMapping(Long cityId, List<String> cityPinCodeList) {
+        List<CityPinCodeMapping> cityPinCodeMappingList = new ArrayList<>();
+        cityPinCodeList.forEach(cityPinCode -> {
+            CityPinCodeMapping cityPinCodeMapping = CityPinCodeMapping.builder().cityId(cityId).pinCode(cityPinCode)
+                    .created(OffsetDateTime.now()).lastUpdated(OffsetDateTime.now()).build();
+            cityPinCodeMappingList.add(cityPinCodeMapping);
+        });
+        return cityPinCodeMappingList;
+    }
+
+    public static List<CityNameMapping> getCityNameMapping(Long cityId, List<String> cityNameList) {
+        List<CityNameMapping> cityNameMappingList = new ArrayList<>();
+        cityNameList.forEach(cityName -> {
+            CityNameMapping cityNameMapping = CityNameMapping.builder().cityId(cityId).cityName(cityName)
+                    .created(OffsetDateTime.now()).lastUpdated(OffsetDateTime.now()).build();
+            cityNameMappingList.add(cityNameMapping);
+        });
+        return cityNameMappingList;
+    }
+
+    public static CategoryEntity getCategoryEntity(CategoryRequestDto categoryRequest) {
+        return CategoryEntity.builder().categoryName(categoryRequest.getCategoryName())
+                .description(categoryRequest.getDescription()).created(OffsetDateTime.now())
+                .lastUpdated(OffsetDateTime.now()).build();
+    }
+
+    public static CityCategoryMapping getCityCategoryMapping(Long cityId, Long categoryId) {
+        return CityCategoryMapping.builder().cityId(cityId).categoryId(categoryId).created(OffsetDateTime.now())
+                .lastUpdated(OffsetDateTime.now()).build();
+    }
+
+    public static ShopEntity getShopEntity(Long cityId, ShopRequestDto shopRequest) {
+        return ShopEntity.builder().cityId(cityId).shopName(shopRequest.getShopName())
+                .description(shopRequest.getDescription()).rating(shopRequest.getRating())
+                .imageUrl(shopRequest.getImageUrl()).addressId(shopRequest.getAddressId()).created(OffsetDateTime.now())
+                .lastUpdated(OffsetDateTime.now()).build();
+    }
+
+    public static CityCategoryShopMapping getCityCategoryShopMapping(Long cityId, Long categoryId, Long shopId) {
+        return CityCategoryShopMapping.builder().cityId(cityId).categoryId(categoryId).shopId(shopId)
                 .created(OffsetDateTime.now()).lastUpdated(OffsetDateTime.now()).build();
     }
 }

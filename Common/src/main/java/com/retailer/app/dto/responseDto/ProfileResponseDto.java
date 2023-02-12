@@ -14,5 +14,4 @@ public class ProfileResponseDto {
     Gender gender;
     String pinCode;
     String city;
-    String password;
 }

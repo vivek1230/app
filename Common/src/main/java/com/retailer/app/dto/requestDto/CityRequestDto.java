@@ -8,7 +8,6 @@ import java.util.List;
 @Data
 @Builder
 public class CityRequestDto {
-    String cityId;
     String cityName;
     String description;
     List<String> cityImageUrlList;

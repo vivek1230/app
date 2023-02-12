@@ -21,10 +21,10 @@ public class CheckOutAddressMapping {
     Long id;
 
     @Column(name = "CheckOutId")
-    String checkOutId;
+    Long checkOutId;
 
     @Column(name = "AddressId")
-    String addressId;
+    Long addressId;
 
     @Column(name = "Created")
     OffsetDateTime created;

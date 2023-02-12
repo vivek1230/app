@@ -8,10 +8,8 @@ import java.util.List;
 @Data
 @Builder
 public class CityResponseDto {
-    String cityId;
+    Long cityId;
     String cityName;
     String description;
     List<String> cityImageUrlList;
-    List<String> cityNameList;
-    List<String> cityPinCodeList;
 }

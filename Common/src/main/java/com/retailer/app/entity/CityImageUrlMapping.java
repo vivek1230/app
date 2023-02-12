@@ -17,11 +17,11 @@ public class CityImageUrlMapping {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "Id", nullable = false)
     Long id;
 
     @Column(name = "CityId")
-    String cityId;
+    Long cityId;
 
     @Column(name = "ImageUrl")
     String imageUrl;

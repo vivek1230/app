@@ -19,13 +19,13 @@ public class OrderItemMapping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    String id;
+    Long id;
 
     @Column(name = "OrderId")
-    String orderId;
+    Long orderId;
 
     @Column(name = "ItemId")
-    String itemId;
+    Long itemId;
 
     @Column(name = "ItemName")
     String itemName;

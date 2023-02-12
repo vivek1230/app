@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class CartDto {
-    String cartId;
-    String userId;
-    String shopId;
+    Long cartId;
+    Long userId;
+    Long shopId;
 }

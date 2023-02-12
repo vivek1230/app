@@ -20,7 +20,7 @@ public class CityPinCodeMapping {
     Long id;
 
     @Column(name = "CityId")
-    String cityId;
+    Long cityId;
 
     @Column(name = "PinCode")
     String pinCode;

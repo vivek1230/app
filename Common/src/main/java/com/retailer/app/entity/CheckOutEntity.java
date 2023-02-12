@@ -18,16 +18,16 @@ public class CheckOutEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CheckOutId", nullable = false)
-    String checkOutId;
+    Long checkOutId;
 
     @Column(name = "UserId")
-    String userId;
+    Long userId;
 
     @Column(name = "ShopId")
-    String shopId;
+    Long shopId;
 
     @Column(name = "CartId")
-    String cartId;
+    Long cartId;
 
     @Column(name = "Created")
     OffsetDateTime created;

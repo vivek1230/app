@@ -18,13 +18,13 @@ public class CartEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CartId", nullable = false)
-    String cartId;
+    Long cartId;
 
     @Column(name = "UserId")
-    String userId;
+    Long userId;
 
     @Column(name = "ShopId")
-    String shopId;
+    Long shopId;
 
     @Column(name = "Created")
     OffsetDateTime created;

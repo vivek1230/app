@@ -21,7 +21,7 @@ public class CityNameMapping {
     Long id;
 
     @Column(name = "CityId")
-    String cityId;
+    Long cityId;
 
     @Column(name = "CityName")
     String cityName;
