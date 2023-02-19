@@ -135,7 +135,7 @@ public class FirstAppController {
         return new ResponseEntity<>(paymentOptionResponseList, HttpStatus.OK);
     }
 
-    @PostMapping(path = "/home", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/home", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<CityResponseDto>> home(@PathVariable("email") String email) {
 
         log.info("Calling home");
